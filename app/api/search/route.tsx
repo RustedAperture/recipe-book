@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
     const query = searchParams.get('query')
 
     const filteredRecipes = recipes.filter((recipe) => {
-        return recipe.name.toLowerCase().includes(query.toLowerCase()) || recipe.tags.includes(query)
+        return recipe.name.toLowerCase().includes(query!.toLowerCase()) || recipe.tags.includes(query!)
     })
 
     return NextResponse.json(filteredRecipes);

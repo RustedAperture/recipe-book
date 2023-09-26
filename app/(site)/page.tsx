@@ -26,7 +26,7 @@ export default function Home() {
     fetchTags();
   },[])
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     const response = await fetch(`/api/search?query=${e.target.value}`);
     const recipe = await response.json();
     setRecipe(recipe)
