@@ -17,7 +17,6 @@
     "next-sanity": "^5.5.4",
     "react": "latest",
     "react-dom": "latest",
-    "react-portable-text": "^0.6.0",
     "sanity": "^3.16.7"
   },
   "devDependencies": {
