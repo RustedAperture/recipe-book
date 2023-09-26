@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="max-w-4xl mx-auto py-10">
+      <body className="max-w-4xl mx-auto py-10 px-4 bg-zinc-900">
         <header className='flex items-center justify-between'>
           <Link href="/" className=''>
             Home
