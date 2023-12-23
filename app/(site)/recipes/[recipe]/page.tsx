@@ -1,10 +1,28 @@
 import { getRecipe } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
+import type { Metadata } from 'next'
 
 import Image from "next/image";
+import Head from "next/head";
 
 type Props = {
     params: { recipe: string };
+};
+
+export const generateMetadata = async (
+    props: Props
+): Promise<Metadata> => {
+    const { params } = props
+    const recipe = await getRecipe(params.recipe)
+    return {
+        title: "Recipe Book | " + recipe.name,
+        description: "Check out this recipe on my website",
+        openGraph: {
+            title: "Recipe Book | " + recipe.name,
+            images: [recipe.image],
+            description: "Check out this recipe on my website",
+        },
+    };
 };
 
 export default async function Recipe({ params }: Props) {
@@ -19,6 +37,19 @@ export default async function Recipe({ params }: Props) {
 
     return (
         <div className="mt-5">
+            <Head>
+                <title>Recipe Book | { recipe.name }</title>
+                <meta name="description" content="Checkout this recipe that we added." key="desc" />
+                <meta property="og:title" content="Recipe Book | { recipe.name }" />
+                <meta
+                    property="og:description"
+                    content="Checkout this recipe that we added."
+                />
+                <meta
+                    property="og:image"
+                    content="{ recipe.image }"
+                />
+            </Head>
             <header className="lg:flex lg:items-center lg:justify-between">
                 <div className="min-w-0 flex-1">
                     <h2 className="text-2xl font-bold leading-7 sm:truncate sm:text-3xl sm:tracking-tight">
