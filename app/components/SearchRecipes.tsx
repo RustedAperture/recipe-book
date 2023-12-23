@@ -25,8 +25,8 @@ export default function SearchRecipes({getSearchResults}: any) {
     return (
         <div className="flex grow">
             <form onSubmit={handleSubmit} className="flex grow gap-3">
-                <input className="grow bg-transparent rounded-xl border-gray-500" type="text" placeholder="Search" value={query} onChange={onChange} onKeyUp={onKeyUp}/>
-                <button className="border border-gray-500 p-2 rounded-xl" type="submit">Seach</button>
+                <input className="bg-zinc-800 grow bg-transparent rounded-xl border-zinc-800" type="text" placeholder="Search" value={query} onChange={onChange} onKeyUp={onKeyUp}/>
+                <button className="bg-zinc-800 border border-zinc-800 p-2 rounded-xl" type="submit">Seach</button>
             </form>
         </div>
     )
