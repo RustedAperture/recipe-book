@@ -59,12 +59,10 @@ export default function Home() {
                   className="object-cover rounded-lg border border-gray-500"
                 />
               )}
-            <div className='font-bold text-xl'>{recipe.name}</div>
-            <div>
-              <FaClock className="inline"/>&nbsp;{recipe.time}&nbsp;
-            </div>
-            <div>
-              <FaChartPie className="inline"/>&nbsp;Serves {recipe.servings}
+            <div className='mt-2 font-bold text-xl'>{recipe.name}</div>
+            <div className="mt-2 flex justify-between text-sm text-gray-300">
+              <p className='flex items-center'><FaClock className="inline"/>&nbsp;{recipe.time}</p>
+              <p className='flex items-center'><FaChartPie className="inline"/>&nbsp;Serves {recipe.servings}</p>
             </div>
           </Link>
         ))}  
