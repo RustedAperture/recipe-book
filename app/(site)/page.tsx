@@ -1,14 +1,14 @@
 "use client"
 
 import { getRecipes, getTags } from '@/sanity/sanity-utils'
-import Image from 'next/image'
-import Link from 'next/link';
-import SearchRecipes from '../components/SearchRecipes';
 import { useEffect, useState } from 'react';
 import { Recipe } from '@/types/Recipe';
 import { Tag } from '@/types/Tag';
-import { FaClock } from 'react-icons/fa';
-import { FaChartPie } from "react-icons/fa";
+import { FaClock, FaChartPie } from 'react-icons/fa';
+
+import Image from 'next/image'
+import Link from 'next/link';
+import SearchRecipes from '../components/SearchRecipes';
 
 export default function Home() {
   const [update, setUpdate] = useState([])

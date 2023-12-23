@@ -2,11 +2,27 @@ import { getRecipes, getTag, getTags } from '@/sanity/sanity-utils'
 import { FaClock, FaChartPie } from 'react-icons/fa';
 import { Recipe } from '@/types/Recipe';
 
+import type { Metadata } from 'next'
+
 import Image from 'next/image'
 import Link from 'next/link';
 
 type Props = {
     params: { tag: string };
+};
+
+export const generateMetadata = async (
+  props: Props
+): Promise<Metadata> => {
+  const { params } = props
+  return {
+      title: "Recipe Book | " + params.tag,
+      description: "Check out our recipes that are tagged with " + params.tag,
+      openGraph: {
+          title: "Recipe Book | " + params.tag,
+          description: "Check out our recipes that are tagged with " + params.tag,
+      },
+  };
 };
 
 export default async function Tag({ params }: Props) {

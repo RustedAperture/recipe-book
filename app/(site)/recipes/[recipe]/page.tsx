@@ -1,13 +1,9 @@
 import { getRecipe } from "@/sanity/sanity-utils";
-import { FaClock } from 'react-icons/fa';
-import { FaChartPie } from "react-icons/fa";
-import { FaCalendarDay } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-import { FaLink } from "react-icons/fa";
+import { FaClock, FaChartPie, FaCalendarDay, FaUser, FaLink } from 'react-icons/fa';
+
 import type { Metadata } from 'next'
 
 import Image from "next/image";
-import Head from "next/head";
 import Link from "next/link";
 
 type Props = {
