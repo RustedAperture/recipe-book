@@ -40,8 +40,8 @@ export default async function Recipe({ params }: Props) {
     const creation = new Date(recipe._createdAt);
 
     return (
-        <div className="mt-5">
-            <section className="lg:flex lg:items-center lg:justify-between my-5">
+        <div className="mt-5 sm:bg-zinc-800 sm:p-5 rounded-lg">
+            <section className="lg:flex lg:items-center lg:justify-between mb-10">
                 { recipe.image && (
                     <Image
                         src={ recipe.image }
@@ -52,7 +52,7 @@ export default async function Recipe({ params }: Props) {
                     />
                 )}
             </section>
-            <header className="my-5 lg:flex lg:items-center lg:justify-between">
+            <header className="my-10 lg:flex lg:items-center lg:justify-between">
                 <div className="min-w-0 flex-1">
                     <h2 className="text-2xl font-bold leading-7 sm:truncate sm:text-3xl sm:tracking-tight">
                         { recipe.name }
@@ -82,7 +82,6 @@ export default async function Recipe({ params }: Props) {
                     </div>
                 </div>
             </header>
-            
             <div className="max-w-none prose prose-invert">
                 <h2 className="drop-shadow">Ingredients</h2>
                 <ul role="list" className="pl-0 marker:text-white list-inside list-disc">
@@ -92,7 +91,7 @@ export default async function Recipe({ params }: Props) {
                         </li>
                     ))}
                 </ul>
-                <h2 className="drop-shadow">Instructions</h2>
+                <h2 className="drop-shadow mt-0">Instructions</h2>
                 <ul className="pl-0 marker:text-white list-decimal list-inside">
                     {recipe.instructions.map((instruction) => (
                         <li key={ generateKey(instruction) } className="pl-0 py-0.5">
