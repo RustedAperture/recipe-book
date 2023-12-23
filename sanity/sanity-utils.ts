@@ -18,7 +18,10 @@ export async function getRecipes(): Promise<Recipe[]> {
             servings,
             ingredients,
             instructions
-        }`
+        }`,
+        { next: {
+            revalidate: 3600 // look for updates to revalidate cache every hour
+        }}
     )
 }
 
@@ -38,7 +41,9 @@ export async function getRecipe(slug: string): Promise<Recipe> {
             ingredients,
             instructions
         }`,
-        { slug }
+        { slug, next: {
+            revalidate: 3600 // look for updates to revalidate cache every hour
+        }},
     )
 }
 
@@ -49,7 +54,10 @@ export async function getTags(): Promise<Tag[]> {
             _createdAt,
             name,
             "slug": slug.current
-        }`
+        }`,
+        { next: {
+            revalidate: 3600 // look for updates to revalidate cache every hour
+        }}
     )
 }
 
@@ -60,6 +68,8 @@ export async function getTag(slug: string): Promise<Tag> {
             _createdAt,
             name,
         }`,
-        { slug }
+        { slug, next: {
+            revalidate: 3600 // look for updates to revalidate cache every hour
+        }},
     )
 }
