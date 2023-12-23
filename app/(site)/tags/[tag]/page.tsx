@@ -1,4 +1,7 @@
 import { getRecipes, getTag, getTags } from '@/sanity/sanity-utils'
+import { FaClock, FaChartPie } from 'react-icons/fa';
+import { Recipe } from '@/types/Recipe';
+
 import Image from 'next/image'
 import Link from 'next/link';
 
@@ -13,27 +16,24 @@ export default async function Tag({ params }: Props) {
 
   return (
     <div>
-      <h1 className='mt-5 text-5xl'>{tag.name}</h1>
-      <div className='mt-10 flex'>
-        <input type='text' className='grow bg-transparent rounded-xl' placeholder='Search'/>
-      </div>
-      <div className='mt-5 flex gap-5'>
-      </div>
-      <h2 className='mt-5 text-3xl'>Recipes</h2>
+      <h1 className='mt-5 text-5xl'>Tagged with {tag.name}</h1>
       <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {recipes.map((recipe) => (
-          <Link key={recipe._id} href={`/recipes/${recipe.slug}`} className='flex flex-col justify-between border border-gray-500 rounded-xl p-3'>
+        {recipes.map((recipe: Recipe) => (
+          <Link key={recipe._id} href={`/recipes/${recipe.slug}`} className='bg-zinc-800 flex flex-col border border-zinc-800 rounded-xl p-3'>
             { recipe.image && (
                 <Image
                   src={ recipe.image }
                   alt={ recipe.name }
-                  width={ 250 }
+                  width={ 500 }
                   height={ 100 }
-                  className="object-cover rounded-lg border border-gray-500"
+                  className="object-cover rounded-lg max-h-[250px]"
                 />
               )}
-            <div className='font-bold text-xl'>{recipe.name}</div>
-            <div>{recipe.time}</div>
+            <div className='mt-2 grow font-bold text-xl'>{recipe.name}</div>
+            <div className="mt-2 flex justify-between text-sm text-gray-300">
+              <p className='flex items-center'><FaClock className="inline"/>&nbsp;{recipe.time}</p>
+              <p className='flex items-center'><FaChartPie className="inline"/>&nbsp;Serves {recipe.servings}</p>
+            </div>
           </Link>
         ))}  
       </div>

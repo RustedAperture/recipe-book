@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 
 import Image from "next/image";
 import Head from "next/head";
+import Link from "next/link";
 
 type Props = {
     params: { recipe: string };
@@ -104,9 +105,9 @@ export default async function Recipe({ params }: Props) {
             </div>
             <div className="flex space-x-5 mt-5 text-zinc-800">
                 {recipe.tags.map((tag) => (
-                    <a key={ generateKey(tag) }>
+                    <Link key={ generateKey(tag) } href={`/tags/${tag.toLowerCase()}`} >
                         {tag}
-                    </a>
+                    </Link>
                 ))}
             </div>
         </div>
