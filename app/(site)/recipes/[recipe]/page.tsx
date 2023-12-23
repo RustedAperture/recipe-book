@@ -41,20 +41,18 @@ export default async function Recipe({ params }: Props) {
 
     return (
         <div className="mt-5">
-            <Head>
-                <title>Recipe Book | { recipe.name }</title>
-                <meta name="description" content="Checkout this recipe that we added." key="desc" />
-                <meta property="og:title" content="Recipe Book | { recipe.name }" />
-                <meta
-                    property="og:description"
-                    content="Checkout this recipe that we added."
-                />
-                <meta
-                    property="og:image"
-                    content="{ recipe.image }"
-                />
-            </Head>
-            <header className="lg:flex lg:items-center lg:justify-between">
+            <section className="lg:flex lg:items-center lg:justify-between my-5">
+                { recipe.image && (
+                    <Image
+                        src={ recipe.image }
+                        alt={ recipe.name }
+                        width={ 500 }
+                        height={ 100 }
+                        className="object-cover rounded-lg min-w-full max-h-[300px]"
+                    />
+                )}
+            </section>
+            <header className="my-5 lg:flex lg:items-center lg:justify-between">
                 <div className="min-w-0 flex-1">
                     <h2 className="text-2xl font-bold leading-7 sm:truncate sm:text-3xl sm:tracking-tight">
                         { recipe.name }
@@ -84,17 +82,7 @@ export default async function Recipe({ params }: Props) {
                     </div>
                 </div>
             </header>
-            <section className="lg:flex lg:items-center lg:justify-between my-5">
-                { recipe.image && (
-                    <Image
-                        src={ recipe.image }
-                        alt={ recipe.name }
-                        width={ 500 }
-                        height={ 100 }
-                        className="object-cover rounded-lg"
-                    />
-                )}
-            </section>
+            
             <div className="max-w-none prose prose-invert">
                 <h2 className="drop-shadow">Ingredients</h2>
                 <ul role="list" className="marker:text-white list-inside list-disc">

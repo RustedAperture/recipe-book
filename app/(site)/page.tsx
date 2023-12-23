@@ -56,7 +56,7 @@ export default function Home() {
                   alt={ recipe.name }
                   width={ 500 }
                   height={ 100 }
-                  className="object-cover rounded-lg border border-gray-500"
+                  className="object-cover rounded-lg max-h-[250px]"
                 />
               )}
             <div className='mt-2 font-bold text-xl'>{recipe.name}</div>
