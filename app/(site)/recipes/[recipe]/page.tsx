@@ -15,6 +15,8 @@ export default async function Recipe({ params }: Props) {
         return `${ pre }_${ new Date().getTime() }`;
     }
 
+    const creation = new Date(recipe._createdAt);
+
     return (
         <div className="mt-5">
             <header className="lg:flex lg:items-center lg:justify-between">
@@ -27,11 +29,22 @@ export default async function Recipe({ params }: Props) {
                             { recipe.author }
                         </div>
                         <div className="mt-2 flex items-center text-sm text-gray-300">
-                            { recipe._createdAt }
+                            { creation.toDateString() }
+                        </div>
+                        <div className="mt-2 flex items-center text-sm text-gray-300">
+                            <PortableText value={ recipe.content } />
+                        </div>
+                        <div className="mt-2 flex items-center text-sm text-gray-300 sm:hidden">
+                        <a
+                            href={ recipe.source } title="View Recipe" target="_blank" rel="noopener noreferrer"
+                            className="underline"
+                        >
+                            Original Recipe
+                        </a>
                         </div>
                     </div>
                 </div>
-                <div className="mt-5 flex lg:ml-4 lg:mt-0">
+                <div className="sm:mt-5 flex lg:ml-4 lg:mt-0">
                     <span className="hidden sm:block">
                         <a
                             href={ recipe.source } title="View Recipe" target="_blank" rel="noopener noreferrer"
@@ -43,22 +56,28 @@ export default async function Recipe({ params }: Props) {
                     </span>
                 </div>
             </header>
+            <section className="lg:flex lg:items-center lg:justify-between my-5">
+                <Image
+                    src={ recipe.image }
+                    alt={ recipe.name }
+                    width={ 500 }
+                    height={ 100 }
+                    className="object-cover rounded-lg"
+                />
+            </section>
             <div className="max-w-none prose prose-invert">
-                <div className="text-lg text-gray-700 mt-5">
-                    <PortableText value={ recipe.content } />
-                </div>
                 <h2 className="drop-shadow">Ingredients</h2>
-                <ul role="list" className="list-inside list-disc ">
+                <ul role="list" className="marker:text-white list-inside list-disc">
                     {recipe.ingredients.map((ingredient) => (
-                        <li key={ generateKey(ingredient) } className="py-1">
+                        <li key={ generateKey(ingredient) } className="py-0.5">
                             {ingredient}
                         </li>
                     ))}
                 </ul>
                 <h2 className="drop-shadow">Instructions</h2>
-                <ul className="list-decimal list-inside">
+                <ul className="marker:text-white list-decimal list-inside">
                     {recipe.instructions.map((instruction) => (
-                        <li key={ generateKey(instruction) } className="py-1">
+                        <li key={ generateKey(instruction) } className="py-0.5">
                             {instruction}
                         </li>
                     ))}
