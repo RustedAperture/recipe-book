@@ -49,7 +49,7 @@ export default function Home() {
       <h2 className='mt-5 text-3xl'>Recipes</h2>
       <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {recipes.map((recipe: Recipe) => (
-          <Link key={recipe._id} href={`/recipes/${recipe.slug}`} className='flex flex-col justify-between border border-gray-500 rounded-xl p-3'>
+          <Link key={recipe._id} href={`/recipes/${recipe.slug}`} className='flex flex-col border border-gray-500 rounded-xl p-3'>
             { recipe.image && (
                 <Image
                   src={ recipe.image }
@@ -59,7 +59,7 @@ export default function Home() {
                   className="object-cover rounded-lg max-h-[250px]"
                 />
               )}
-            <div className='mt-2 font-bold text-xl'>{recipe.name}</div>
+            <div className='mt-2 grow font-bold text-xl'>{recipe.name}</div>
             <div className="mt-2 flex justify-between text-sm text-gray-300">
               <p className='flex items-center'><FaClock className="inline"/>&nbsp;{recipe.time}</p>
               <p className='flex items-center'><FaChartPie className="inline"/>&nbsp;Serves {recipe.servings}</p>
