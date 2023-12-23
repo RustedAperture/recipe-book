@@ -85,17 +85,17 @@ export default async function Recipe({ params }: Props) {
             
             <div className="max-w-none prose prose-invert">
                 <h2 className="drop-shadow">Ingredients</h2>
-                <ul role="list" className="marker:text-white list-inside list-disc">
+                <ul role="list" className="pl-0 marker:text-white list-inside list-disc">
                     {recipe.ingredients.map((ingredient) => (
-                        <li key={ generateKey(ingredient) } className="py-0.5">
+                        <li key={ generateKey(ingredient) } className="pl-0 py-0.5">
                             {ingredient}
                         </li>
                     ))}
                 </ul>
                 <h2 className="drop-shadow">Instructions</h2>
-                <ul className="marker:text-white list-decimal list-inside">
+                <ul className="pl-0 marker:text-white list-decimal list-inside">
                     {recipe.instructions.map((instruction) => (
-                        <li key={ generateKey(instruction) } className="py-0.5">
+                        <li key={ generateKey(instruction) } className="pl-0 py-0.5">
                             {instruction}
                         </li>
                     ))}
