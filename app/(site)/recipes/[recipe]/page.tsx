@@ -57,13 +57,15 @@ export default async function Recipe({ params }: Props) {
                 </div>
             </header>
             <section className="lg:flex lg:items-center lg:justify-between my-5">
-                <Image
-                    src={ recipe.image }
-                    alt={ recipe.name }
-                    width={ 500 }
-                    height={ 100 }
-                    className="object-cover rounded-lg"
-                />
+                { recipe.image && (
+                    <Image
+                        src={ recipe.image }
+                        alt={ recipe.name }
+                        width={ 500 }
+                        height={ 100 }
+                        className="object-cover rounded-lg"
+                    />
+                )}
             </section>
             <div className="max-w-none prose prose-invert">
                 <h2 className="drop-shadow">Ingredients</h2>
