@@ -7,6 +7,8 @@ import SearchRecipes from '../components/SearchRecipes';
 import { useEffect, useState } from 'react';
 import { Recipe } from '@/types/Recipe';
 import { Tag } from '@/types/Tag';
+import { FaClock } from 'react-icons/fa';
+import { FaChartPie } from "react-icons/fa";
 
 export default function Home() {
   const [update, setUpdate] = useState([])
@@ -52,13 +54,18 @@ export default function Home() {
                 <Image
                   src={ recipe.image }
                   alt={ recipe.name }
-                  width={ 250 }
+                  width={ 500 }
                   height={ 100 }
                   className="object-cover rounded-lg border border-gray-500"
                 />
               )}
             <div className='font-bold text-xl'>{recipe.name}</div>
-            <div>{recipe.time}</div>
+            <div>
+              <FaClock className="inline"/>&nbsp;{recipe.time}&nbsp;
+            </div>
+            <div>
+              <FaChartPie className="inline"/>&nbsp;Serves {recipe.servings}
+            </div>
           </Link>
         ))}  
       </div>

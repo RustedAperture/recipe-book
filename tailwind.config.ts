@@ -18,6 +18,9 @@ const config: Config = {
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
+    require('tailwind-fontawesome')({
+      version: 6
+    })
   ],
 }
 export default config

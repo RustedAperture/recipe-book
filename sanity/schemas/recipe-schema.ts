@@ -48,6 +48,12 @@ const recipe = {
             description: 'Time to complete recipe.'
         },
         {
+            name: 'servings',
+            title: 'Servings',
+            type: 'string',
+            description: 'How many serving does this make.'
+        },
+        {
             name: 'tags',
             title: 'Tags',
             type: 'array',
@@ -70,13 +76,6 @@ const recipe = {
             type: 'array',
             description: 'Steps to follow for the recipe.',
             of: [{type: 'string'}]
-        },
-        {
-            title: 'Content', 
-            name: 'content',
-            type: 'array', 
-            description: 'Additional text that should be included in the recipe.',
-            of: [{type: 'block'}]
         }
     ]
 }

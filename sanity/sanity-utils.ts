@@ -15,9 +15,9 @@ export async function getRecipes(): Promise<Recipe[]> {
             "image": image.asset->url,
             "tags": tags[]->name,
             time,
+            servings,
             ingredients,
-            instructions,
-            content
+            instructions
         }`
     )
 }
@@ -34,9 +34,9 @@ export async function getRecipe(slug: string): Promise<Recipe> {
             "image": image.asset->url,
             "tags": tags[]->name,
             time,
+            servings,
             ingredients,
-            instructions,
-            content
+            instructions
         }`,
         { slug }
     )

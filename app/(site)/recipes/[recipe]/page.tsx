@@ -1,5 +1,9 @@
 import { getRecipe } from "@/sanity/sanity-utils";
-import { PortableText } from "@portabletext/react";
+import { FaClock } from 'react-icons/fa';
+import { FaChartPie } from "react-icons/fa";
+import { FaCalendarDay } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+import { FaLink } from "react-icons/fa";
 import type { Metadata } from 'next'
 
 import Image from "next/image";
@@ -57,34 +61,27 @@ export default async function Recipe({ params }: Props) {
                     </h2>
                     <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
                         <div className="mt-2 flex items-center text-sm text-gray-300">
-                            { recipe.author }
+                            <FaUser className="inline"/>&nbsp;{ recipe.author }
                         </div>
                         <div className="mt-2 flex items-center text-sm text-gray-300">
-                            { creation.toDateString() }
+                            <FaCalendarDay className="inline"/>&nbsp;{ creation.toDateString() }
                         </div>
                         <div className="mt-2 flex items-center text-sm text-gray-300">
-                            <PortableText value={ recipe.content } />
+                            <FaChartPie className="inline"/>&nbsp;Serves { recipe.servings }
                         </div>
-                        <div className="mt-2 flex items-center text-sm text-gray-300 sm:hidden">
-                        <a
-                            href={ recipe.source } title="View Recipe" target="_blank" rel="noopener noreferrer"
-                            className="underline"
-                        >
-                            Original Recipe
-                        </a>
+                        <div className="mt-2 flex items-center content-baseline text-sm text-gray-300">
+                            <FaClock className="inline"/>&nbsp;{ recipe.time }
+                        </div>
+                        <div className="mt-2 flex items-center text-sm text-gray-300">
+                            <FaLink className="inline"/>&nbsp;
+                            <a
+                                href={ recipe.source } title="View Recipe" target="_blank" rel="noopener noreferrer"
+                                className="underline"
+                            >
+                                 Original Recipe
+                            </a>
                         </div>
                     </div>
-                </div>
-                <div className="sm:mt-5 flex lg:ml-4 lg:mt-0">
-                    <span className="hidden sm:block">
-                        <a
-                            href={ recipe.source } title="View Recipe" target="_blank" rel="noopener noreferrer"
-                            type="button"
-                            className="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                        >
-                            Original Recipe
-                        </a>
-                    </span>
                 </div>
             </header>
             <section className="lg:flex lg:items-center lg:justify-between my-5">
