@@ -41,15 +41,15 @@ export default function Home() {
         <SearchRecipes getSearchResults={(results: any) => setRecipe(results)} />
       </div>
       <div className='mt-5 flex gap-5 flex-wrap'>
-      <button onClick={handleSubmit} className='p-3 border border-gray-500 rounded-xl text-center' value="">All</button>
+      <button onClick={handleSubmit} className='bg-zinc-800 p-3 border border-zinc-800 rounded-xl text-center' value="">All</button>
         {tags.map((tag: Tag) => (
-          <button key={tag._id} onClick={handleSubmit} className='p-3 border border-gray-500 rounded-xl text-center' value={ tag.name }>{ tag.name }</button>
+          <button key={tag._id} onClick={handleSubmit} className='bg-zinc-800 p-3 border border-zinc-800 rounded-xl text-center' value={ tag.name }>{ tag.name }</button>
         ))}
       </div>
       <h2 className='mt-5 text-3xl'>Recipes</h2>
       <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {recipes.map((recipe: Recipe) => (
-          <Link key={recipe._id} href={`/recipes/${recipe.slug}`} className='flex flex-col border border-gray-500 rounded-xl p-3'>
+          <Link key={recipe._id} href={`/recipes/${recipe.slug}`} className='bg-zinc-800 flex flex-col border border-zinc-800 rounded-xl p-3'>
             { recipe.image && (
                 <Image
                   src={ recipe.image }
