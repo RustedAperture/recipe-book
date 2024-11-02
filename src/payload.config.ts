@@ -38,6 +38,8 @@ import { Page, Recipe } from 'src/payload-types'
 import { searchFields } from '@/search/fieldOverrides'
 import { beforeSyncWithSearch } from '@/search/beforeSync'
 
+import { s3Storage } from '@payloadcms/storage-s3'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -140,6 +142,20 @@ export default buildConfig({
   ],
   globals: [Header, Footer],
   plugins: [
+    s3Storage({
+      collections: {
+        ['media']: true,
+      },
+      bucket: process.env.S3_BUCKET || '',
+      config: {
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
+        },
+        region: process.env.S3_REGION,
+        endpoint: process.env.S3_ENDPOINT,
+      },
+    }),
     redirectsPlugin({
       collections: ['pages', 'recipes'],
       overrides: {
