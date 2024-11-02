@@ -146,6 +146,7 @@ export default buildConfig({
       collections: {
         ['media']: true,
       },
+      acl: 'public-read',
       bucket: process.env.S3_BUCKET || '',
       config: {
         credentials: {
