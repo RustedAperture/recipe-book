@@ -59,29 +59,32 @@ export const Card: React.FC<{
         {showCategories && hasCategories && (
           <div className="flex items-center uppercase text-sm mb-4">
             <FaTags className="inline" />
-            &nbsp;
-            {showCategories && hasCategories && (
-              <div>
-                {categories?.map((category, index) => {
-                  if (typeof category === 'object') {
-                    const { title: titleFromCategory } = category
+            <span className="ps-2">
+              {showCategories && hasCategories && (
+                <div>
+                  {categories?.map((category, index) => {
+                    if (typeof category === 'object') {
+                      const { title: titleFromCategory } = category
 
-                    const categoryTitle = titleFromCategory || 'Untitled category'
+                      const categoryTitle = titleFromCategory || 'Untitled category'
 
-                    const isLast = index === categories.length - 1
+                      const isLast = index === categories.length - 1
 
-                    return (
-                      <Fragment key={index}>
-                        {categoryTitle}
-                        {!isLast && <Fragment>, &nbsp;</Fragment>}
-                      </Fragment>
-                    )
-                  }
+                      return (
+                        <Fragment key={index}>
+                          <Link className="hover:underline" href={`/categories/${categoryTitle}`}>
+                            {categoryTitle}
+                          </Link>
+                          {!isLast && <Fragment>, &nbsp;</Fragment>}
+                        </Fragment>
+                      )
+                    }
 
-                  return null
-                })}
-              </div>
-            )}
+                    return null
+                  })}
+                </div>
+              )}
+            </span>
           </div>
         )}
 
