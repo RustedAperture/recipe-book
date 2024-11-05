@@ -30,9 +30,9 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ header }) => {
   }, [headerTheme])
 
   return (
-    <div className="bg-gradient-to-b from-black to-purple-500/0 ">
+    <div className="">
       <header
-        className="container relative z-20 p-8 flex justify-between"
+        className="container relative z-20 py-8 flex justify-between"
         {...(theme ? { 'data-theme': theme } : {})}
       >
         <Link href="/">

@@ -19,6 +19,8 @@ type Args = {
 
 export default async function Page({ params: paramsPromise }: Args) {
   const { slug = '' } = await paramsPromise
+  const decodedSlug = decodeURIComponent(slug)
+  console.log(decodedSlug)
   const payload = await getPayloadHMR({ config: configPromise })
 
   const recipes = await payload.find({
@@ -28,7 +30,7 @@ export default async function Page({ params: paramsPromise }: Args) {
     overrideAccess: false,
     where: {
       'categories.title': {
-        equals: slug,
+        equals: decodedSlug,
       },
     },
   })
@@ -38,7 +40,7 @@ export default async function Page({ params: paramsPromise }: Args) {
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none">
-          <h1>Recipes</h1>
+          <h1>{decodedSlug}</h1>
         </div>
       </div>
 
