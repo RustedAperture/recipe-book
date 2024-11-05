@@ -66,6 +66,6 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 export function generateMetadata(): Metadata {
   return {
-    title: `Payload Website Template Recipes`,
+    title: `Recipe Book Categories`,
   }
 }

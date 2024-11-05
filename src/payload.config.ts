@@ -44,7 +44,7 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 const generateTitle: GenerateTitle<Recipe | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
+  return doc?.title ? `${doc.title} | Recipe Book` : 'Recipe Book'
 }
 
 const generateURL: GenerateURL<Recipe | Page> = ({ doc }) => {
